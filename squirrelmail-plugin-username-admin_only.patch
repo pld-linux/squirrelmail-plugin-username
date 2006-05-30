@@ -1,0 +1,97 @@
+diff -ur username.orig/config.php.sample username/config.php.sample
+--- username.orig/config.php.sample	2003-08-30 03:13:14.000000000 +0200
++++ username/config.php.sample	2006-05-30 12:06:00.389329750 +0200
+@@ -1,8 +1,20 @@
+ <?php
+ 
+-   global $usernameMotdWelcomeMessage, $add_domain_to_username, $username_replaces_motd;
++   global $usernameMotdWelcomeMessage, $add_domain_to_username, $username_replaces_motd,
++          $show_username, $show_username_pos, $username_motd;
+ 
+ 
++   // Do you want to display username? Possible values:
++   // 0 - disabled
++   // 1 - simply display username
++   // 2 - display "Logged in as: username"
++   $show_username = 2;
++
++
++   // Show username above (top) or below (bottom) folder list?
++   // Defaults to top.
++   $show_username_pos = "top";
++
+ 
+    // Set format of welcome message here
+    //
+@@ -13,6 +25,10 @@
+    $usernameMotdWelcomeMessage = 'Welcome, <font color="red">###USERNAME###</font>!';
+ 
+ 
++   // Show username in Message of the Day?
++   $username_motd = 0;
++
++
+    // When users choose to see the username in the MOTD,
+    // should it replace the MOTD or be used together with
+    // the MOTD?  (username comes first in such case,
+@@ -26,6 +42,4 @@
+    //
+    $add_domain_to_username = 0;
+ 
+-
+-
+ ?>
+diff -ur username.orig/functions.php username/functions.php
+--- username.orig/functions.php	2003-08-30 03:09:34.000000000 +0200
++++ username/functions.php	2006-05-30 12:05:42.984242000 +0200
+@@ -91,7 +91,7 @@
+          //. (!empty($motd) ? '<br /><br />' . $motd : '');
+    }
+ 
+-
++/*
+    function username_show_options_do() {
+       global $show_username, $show_username_pos, $username_motd, 
+              $username, $data_dir, $domain, $add_domain_to_username;
+@@ -184,6 +184,6 @@
+       $username_motd = getPref($data_dir, $username, 'username_motd', 0);
+       //$add_domain_to_username = getPref($data_dir, $username, 'add_domain_to_username', 0);
+    }
+-
++*/
+ 
+ ?>
+diff -ur username.orig/setup.php username/setup.php
+--- username.orig/setup.php	2003-08-30 03:03:21.000000000 +0200
++++ username/setup.php	2006-05-30 12:05:42.984242000 +0200
+@@ -11,12 +11,14 @@
+          'username_show_LMB';
+       $squirrelmail_plugin_hooks['left_main_after']['username'] =
+          'username_show_LMA';
++/*
+       $squirrelmail_plugin_hooks['options_display_inside']['username'] = 
+          'username_show_options';
+       $squirrelmail_plugin_hooks['options_display_save']['username'] = 
+          'username_save_options';
+       $squirrelmail_plugin_hooks['loading_prefs']['username'] = 
+          'username_load_options';
++*/
+       $squirrelmail_plugin_hooks['right_main_after_header']['username'] = 
+          'username_show_motd';
+    }
+@@ -60,6 +62,7 @@
+ 
+    }
+ 
++/*
+    function username_show_options() {
+ 
+       if (defined('SM_PATH'))
+@@ -92,6 +95,6 @@
+       username_load_options_do();
+ 
+    }
+-
++*/
+ 
+ ?>
