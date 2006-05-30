@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	admin_only	# disallow users changing plugin options
+#
 %define		_plugin	username
 %define		mversion	1.0.0
 Summary:	Plugin to show current username
@@ -9,6 +13,7 @@ License:	GPL
 Group:		Applications/Mail
 Source0:	http://www.squirrelmail.org/plugins/%{_plugin}-%{version}-%{mversion}.tar.gz
 # Source0-md5:	c81670f5607835dc1e226653cf5c53b1
+Patch0:		%{name}-admin_only.patch
 URL:		http://www.squirrelmail.org/
 Requires:	squirrelmail >= 1.4.6-2
 Requires:	squirrelmail-compatibility-2.0.4
@@ -28,6 +33,7 @@ folderów i/lub jak Wiadomo¶æ Dnia.
 
 %prep
 %setup -q -n %{_plugin}
+%{?with_admin_only:%patch0 -p1}
 
 %install
 rm -rf $RPM_BUILD_ROOT
