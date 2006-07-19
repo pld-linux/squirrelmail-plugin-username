@@ -14,7 +14,7 @@ Group:		Applications/Mail
 Source0:	http://www.squirrelmail.org/plugins/%{_plugin}-%{version}-%{mversion}.tar.gz
 # Source0-md5:	c81670f5607835dc1e226653cf5c53b1
 Patch0:		%{name}-admin_only.patch
-URL:		http://www.squirrelmail.org/
+URL:		http://www.squirrelmail.org/plugin_view.php?id=35
 Requires:	squirrelmail >= 1.4.6-2
 Requires:	squirrelmail-compatibility-2.0.4
 BuildArch:	noarch
