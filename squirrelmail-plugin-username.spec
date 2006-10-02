@@ -8,12 +8,13 @@ Summary:	Plugin to show current username
 Summary(pl):	Wtyczka wy¶wietlaj±ca nazwê u¿ytkownika
 Name:		squirrelmail-plugin-%{_plugin}
 Version:	2.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://www.squirrelmail.org/plugins/%{_plugin}-%{version}-%{mversion}.tar.gz
 # Source0-md5:	c81670f5607835dc1e226653cf5c53b1
 Patch0:		%{name}-admin_only.patch
+Patch1:		%{name}-locale_support.patch
 URL:		http://www.squirrelmail.org/plugin_view.php?id=35
 Requires:	squirrelmail >= 1.4.6-2
 Requires:	squirrelmail-compatibility-2.0.4
@@ -34,6 +35,7 @@ folderów i/lub jak Wiadomo¶æ Dnia.
 %prep
 %setup -q -n %{_plugin}
 %{?with_admin_only:%patch0 -p1}
+%patch1 -p0
 
 %install
 rm -rf $RPM_BUILD_ROOT
