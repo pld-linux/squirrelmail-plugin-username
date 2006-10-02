@@ -1,0 +1,20 @@
+--- functions.php.orig	2003-08-30 03:09:34.000000000 +0200
++++ functions.php	2006-10-02 14:52:58.024631750 +0200
+@@ -48,6 +48,8 @@
+       if (! $show_username)
+          return;
+ 	 
++      bindtextdomain ('username', SM_PATH . 'locale');
++      textdomain ('username');
+       ?>
+ <table align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="<?php echo $color[10] ?>"><tr><td>
+ <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $color[5] ?>"><tr><td align="center">
+@@ -65,6 +67,8 @@
+ </td></tr></table>
+ <br>
+ <?php
++      bindtextdomain ('squirrelmail', SM_PATH . 'locale');
++      textdomain ('squirrelmail');
+    }
+ 
+ 
