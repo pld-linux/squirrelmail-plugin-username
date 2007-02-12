@@ -5,7 +5,7 @@
 %define		_plugin	username
 %define		mversion	1.0.0
 Summary:	Plugin to show current username
-Summary(pl.UTF-8):   Wtyczka wyświetlająca nazwę użytkownika
+Summary(pl.UTF-8):	Wtyczka wyświetlająca nazwę użytkownika
 Name:		squirrelmail-plugin-%{_plugin}
 Version:	2.3
 Release:	2
