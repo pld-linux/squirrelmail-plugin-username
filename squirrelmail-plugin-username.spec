@@ -5,7 +5,7 @@
 %define		_plugin	username
 %define		mversion	1.0.0
 Summary:	Plugin to show current username
-Summary(pl):	Wtyczka wy¶wietlaj±ca nazwê u¿ytkownika
+Summary(pl.UTF-8):   Wtyczka wyÅ›wietlajÄ…ca nazwÄ™ uÅ¼ytkownika
 Name:		squirrelmail-plugin-%{_plugin}
 Version:	2.3
 Release:	2
@@ -28,9 +28,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Plugin that shows current username above or below folder list and/or
 as Message of the Day.
 
-%description -l pl
-Wtyczka wy¶wietlaj±ca aktualn± nazwê u¿ytkownika nad lub pod list±
-folderów i/lub jak Wiadomo¶æ Dnia.
+%description -l pl.UTF-8
+Wtyczka wyÅ›wietlajÄ…ca aktualnÄ… nazwÄ™ uÅ¼ytkownika nad lub pod listÄ…
+folderÃ³w i/lub jak WiadomoÅ›Ä‡ Dnia.
 
 %prep
 %setup -q -n %{_plugin}
