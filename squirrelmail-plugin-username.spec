@@ -35,7 +35,7 @@ folderów i/lub jak Wiadomość Dnia.
 %prep
 %setup -q -n %{_plugin}
 %{?with_admin_only:%patch0 -p1}
-%patch1 -p0
+%patch -P1 -p0
 
 %install
 rm -rf $RPM_BUILD_ROOT
